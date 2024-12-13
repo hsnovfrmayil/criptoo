@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Feal Şifrələmə və Deşifrələmə";
+}
+
+<!-- Başlıq -->
+<h1 class="text-center" style="color: #4CAF50; font-size: 2.5em; font-weight: bold; margin-top: 20px;">Feal Şifrələmə və Deşifrələmə</h1>
+
+<!-- Ümumi konteyner -->
+<div class="container" style="max-width: 1000px; margin-top: 40px; padding-bottom: 40px;">
+
+    <!-- Şifrələmə prosesi -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title">1. Şifrələmə Prosesi</h3>
+        </div>
+        <div class="card-body">
+            <!-- 1. Mətn və Açarın Seçilməsi -->
+            <h4>1. Mətn və Açarın Seçilməsi</h4>
+            <p>Şifrələmə prosesi üçün ilkin olaraq mətni və açarı seçirik:</p>
+            <p><strong>Mətn:</strong> "FEAL"</p>
+            <p><strong>Açar:</strong> 0xABCD1234</p>
+            <p><i>Bu mətnin şifrələnməsi üçün seçilmiş açardır.</i></p>
+
+            <hr>
+
+            <!-- 2. Mətnin Bloklara Bölünməsi -->
+            <h4>2. Mətnin Bloklara Bölünməsi</h4>
+            <p>Mətnin hər bir xarakteri 1 baytlıq verilmişdir və bunlar hexadecimal formatda təmsil edilir:</p>
+            <p><strong>F = 0x46, E = 0x45, A = 0x41, L = 0x4C</strong></p>
+            <p><i>Bu addımda, mətnin hər bir baytı bir blok kimi qəbul edilir və şifrələmə alqoritmasına verilir.</i></p>
+
+            <hr>
+
+            <!-- 3. Feal Alqoritması ilə Şifrələmə -->
+            <h4>3. Feal Alqoritması ilə Şifrələmə</h4>
+            <p>Feal alqoritması şifrələmə mərhələsinə daxil olur. Bu mərhələdə, alqoritma hər bir baytı təkrarlanan şifrələmə addımları ilə işləyir:</p>
+            <p><strong>Şifrələnmiş Mətn:</strong> <code>0xAB12CDEF</code></p>
+            <p><i>Bu nəticə şifrələnmiş mətnin hexadecimal təmsilidir.</i></p>
+        </div>
+    </div>
+
+    <!-- Deşifrələmə prosesi -->
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h3 class="card-title">2. Deşifrələmə Prosesi</h3>
+        </div>
+        <div class="card-body">
+            <!-- 4. Şifrlənmiş Mətnin Göstərilməsi -->
+            <h4>4. Şifrlənmiş Mətnin Göstərilməsi</h4>
+            <p>Şifrələmə prosesi başa çatdıqdan sonra əldə edilən şifrələnmiş mətni göstəririk:</p>
+            <p><strong>Şifrlənmiş Mətn:</strong> <code>0xAB12CDEF</code></p>
+            <p><i>Bu mətn artıq şifrələnmiş və mühafizə olunmuş məlumatdır.</i></p>
+
+            <hr>
+
+            <!-- 5. Açar ilə Deşifrələmə -->
+            <h4>5. Açar ilə Deşifrələmə</h4>
+            <p>Şifrələnmiş mətni, əvvəlki açar ilə deşifrələyirik. Alqoritma bu mərhələdə orijinal mətni bərpa edir:</p>
+            <p><strong>Deşifrlənmiş Mətn:</strong> "FEAL"</p>
+            <p><i>Bu nəticə orijinal mətni göstərir, yəni şifrələnmiş məlumat doğru şəkildə bərpa olunub.</i></p>
+        </div>
+    </div>
+</div>
+
+<!-- Stilin əlavə edilməsi -->
+<style>
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Arial', sans-serif;
+        margin-top: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+
+    .card-header {
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+
+    .card-body {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+        .card-body h4 {
+            color: #2a9d8f;
+        }
+
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f1f1f1;
+        padding: 5px;
+        border-radius: 5px;
+        color: #e63946;
+        font-size: 1.2em;
+    }
+
+    .container {
+        padding-top: 30px;
+    }
+
+    .btn {
+        font-size: 1.2em;
+        padding: 12px 25px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+
+    .card-body p {
+        line-height: 1.6;
+    }
+
+    /* Stil əlavələri */
+    .highlight {
+        background-color: #ffff99;
+        padding: 5px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+
+    .code-container {
+        background-color: #282c34;
+        padding: 20px;
+        border-radius: 8px;
+        color: #f1f1f1;
+        font-size: 1.1em;
+    }
+
+        .code-container code {
+            color: #f39c12;
+        }
+
+    .note {
+        font-style: italic;
+        color: #888;
+    }
+</style>

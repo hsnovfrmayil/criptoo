@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "SM4 Şifrələmə və Deşifrələmə";
+    ViewBag.AlgorithmName = "SM4 Şifrələmə Metodu";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="sm4-container">
+    <h2>Açarın və Mətnin Seçilməsi</h2>
+    <div class="sm4-step">
+        <h3>1. Mətn və Açar Seçilir:</h3>
+        <p>Mətn: <strong>SHUSA</strong></p>
+        <p>Açar: <strong>1234567890ABCDEF</strong></p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="sm4-step">
+        <h3>2. Açarın İstifadəsi:</h3>
+        <p>SM4 şifrələməsi üçün 128-bitlik açar istifadə edilir. Bu açar yalnız şifrələmə və deşifrələmə əməliyyatlarında istifadə olunur.</p>
+    </div>
+
+    <div class="sm4-step">
+        <h3>3. Şifrələmə Addımları:</h3>
+        <p>Şifrələmə prosesi aşağıdakı kimi həyata keçirilir:</p>
+        <ul>
+            <li>Açar və mətnin bitləri (blockları) SM4 alqoritması ilə işlənir.</li>
+            <li>Açar 128 bit uzunluğunda olduğu üçün, 32 bitlik bloklarla şifrələnir.</li>
+            <li>Şifrələnmiş nəticə əməliyyatların sonuncusu olaraq əldə edilir.</li>
+        </ul>
+    </div>
+
+    <div class="sm4-step">
+        <h3>4. Şifrələmə Nəticəsi:</h3>
+        <p>Şifrələnmiş mətn (SM4 ilə): <strong>5E0C65EC9C7B2B2C</strong></p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="sm4-step">
+        <h3>5. Deşifrələmə Addımları:</h3>
+        <p>Şifrələnmiş mətn deşifrələmə alqoritması ilə geri çevrilir.</p>
+        <ul>
+            <li>Şifrələnmiş mətni əvvəlki açarla deşifrləyirik.</li>
+            <li>Alınan nəticə əvvəldən göndərilən orijinal mətni bərpa edir.</li>
+        </ul>
+    </div>
+
+    <div class="sm4-step">
+        <h3>6. Deşifrələmə Nəticəsi:</h3>
+        <p>Deşifrələnmiş mətn: <strong>SHUSA</strong></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .sm4-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sm4-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .sm4-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .sm4-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .sm4-step code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>

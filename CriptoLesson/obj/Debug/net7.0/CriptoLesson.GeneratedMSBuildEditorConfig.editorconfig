@@ -1,0 +1,169 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CriptoLesson
+build_property.RootNamespace = CriptoLesson
+build_property.ProjectDir = /Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9BY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/AES.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvQUVTLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Blowfish.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvQmxvd2Zpc2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/DES.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvREVTLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/DSA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvRFNBLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Elgamal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvRWxnYW1hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Feal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvRmVhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Feistel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvRmVpc3RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Playfair.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvUGxheWZhaXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Polybius.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvUG9seWJpdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/RSA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvUlNBLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Serpent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvU2VycGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/SM4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvU000LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Calculating/Vigenere.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FsY3VsYXRpbmcvVmlnZW5lcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Home/Calculating.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9DYWxjdWxhdGluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Home/Learn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MZWFybi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/AES.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vQUVTLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Blowfish.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vQmxvd2Zpc2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/DES.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vREVTLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/DSA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vRFNBLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Elgamal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vRWxnYW1hbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Feal.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vRmVhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Feistel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vRmVpc3RlbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Playfair.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vUGxheWZhaXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Polybius.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vUG9seWJpdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/RSA.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vUlNBLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Serpent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vU2VycGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/SM4.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vU000LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Learn/Vigenere.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvTGVhcm4vVmlnZW5lcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/fermayilhesenov/Projects/CriptoLesson/CriptoLesson/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-fode68w3mu

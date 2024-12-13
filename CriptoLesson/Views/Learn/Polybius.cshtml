@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Polybius Şifrələmə və Deşifrələmə";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="polybius-container">
+    <h2>Açarın və Mətnin Seçilməsi</h2>
+    <div class="polybius-step">
+        <h3>1. Mətn: HELLO</h3>
+        <p>Açar: Polybius 5x5 Matrisi</p>
+        <p>Polybius şifrələmə metodunda, mətn əvvəlcə hərflərə ayrılır və həmin hərflərdən hər biri 5x5-lik bir matrisi istifadə edərək iki rəqəmli cütlərə çevrilir. Bu cütlər, matrisdəki hərf və sütun nömrələrinə uyğun gəlir.</p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="polybius-step">
+        <h3>2. Açarın Matrisi Yaradılır:</h3>
+        <p>Açar: <code>5x5-lik Polybius Matrisi</code></p>
+        <pre>
+        1  2  3  4  5
+        --------------
+        1 | A  B  C  D  E
+        2 | F  G  H  I/J K
+        3 | L  M  N  O  P
+        4 | Q  R  S  T  U
+        5 | V  W  X  Y  Z
+        </pre>
+        <p>Polybius matrisi 5x5 ölçüsündədir. Burada, hər bir hərf və rəqəm sırasıyla müəyyənləşdirilmişdir. Hər bir sıra (yatay) və sütun (şaquli) nömrələri istifadə edilərək, hərf iki rəqəmli bir cütə çevrilir.</p>
+    </div>
+
+    <div class="polybius-step">
+        <h3>3. Mətnin Cütlərə Ayrılması:</h3>
+        <p>Mətn: HELLO → 23 15 31 31 34</p>
+        <p>Polybius şifrələməsində, mətn hərflərə ayrıldıqdan sonra, hər bir hərf aşağıdakı cütlərə çevrilir:</p>
+        <ul>
+            <li>H → 23</li>
+            <li>E → 15</li>
+            <li>L → 31</li>
+            <li>L → 31</li>
+            <li>O → 34</li>
+        </ul>
+        <p>Hər bir hərf, Polybius matrisindəki müvafiq yerini tapır və bu yeri (sətir və sütun nömrələri) göstərən iki rəqəmli bir cütlə təmsil olunur.</p>
+    </div>
+
+    <div class="polybius-step">
+        <h3>4. Şifrələnmiş Mətn:</h3>
+        <p>Şifrələnmiş mətn: <code>23 15 31 31 34</code></p>
+        <p>Beləliklə, "HELLO" sözünün şifrələnmiş forması, Polybius matrisi vasitəsilə əldə edilən cütlərdən ibarətdir. Bu cütlər şifrəni təqdim edir və onlar şifrəli mesajın əsasını təşkil edir.</p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="polybius-step">
+        <h3>5. Şifrlənmiş Mətnin Təyini:</h3>
+        <p>Şifrlənmiş mətn: 23 15 31 31 34</p>
+        <p>Bu cütlər şifrələnmiş mətnin tam olaraq necə olduğunu göstərir. İndi, biz bu cütləri oxuyaraq orijinal mətni bərpa edəcəyik.</p>
+    </div>
+
+    <div class="polybius-step">
+        <h3>6. Deşifrələnmiş Cütlər:</h3>
+        <pre>
+        23 → H
+        15 → E
+        31 → L
+        31 → L
+        34 → O
+        </pre>
+        <p>Şifrəni deşifrə edərkən, əvvəlki cütləri Polybius matrisində tapırıq və hər cütün qarşısındakı hərfi müəyyən edirik. Beləliklə, şifrlənmiş "23 15 31 31 34" cütləri "HELLO" sözü ilə nəticələnir.</p>
+        <p>Deşifrlənmiş mətn: <code>HELLO</code></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .polybius-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .polybius-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .polybius-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .polybius-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .polybius-step code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+        }
+</style>

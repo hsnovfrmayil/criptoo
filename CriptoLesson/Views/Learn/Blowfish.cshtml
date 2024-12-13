@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blowfish Şifrələmə İzahı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .step {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .key-example {
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Blowfish Şifrələmə Alqoritması İzahı</h1>
+
+        <div class="step">
+            <div class="step-title">1. Blowfish Açarının Yaradılması</div>
+            <p class="explanation">
+                Blowfish şifrələmə alqoritmasında, açar (key) 32 bitdən 448 bitə qədər uzunluğa malik ola bilər. Açarın uzunluğu şifrələmə və deşifrələmə proseslərini təhlükəsiz şəkildə həyata keçirmək üçün böyük əhəmiyyətə malikdir.
+                İlk addımda açar yaradılır və Blowfish alqoritması tərəfindən istifadə olunacaq.
+            </p>
+            <p class="code-block">
+                // Açarın Yaradılması: <br>
+                Key = "SecretKey123"<br>
+                // Açar uzunluğu: 128 bit
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">2. Şifrələmə Prosesi</div>
+            <p class="explanation">
+                Blowfish şifrələməsinin əsas hissəsi, **Feistel şəbəkəsindən** istifadə etməsidir. Şifrələmə, 16 mərhələdən ibarət olub hər mərhələdə məlumat üzərində müxtəlif riyazi əməliyyatlar aparılır. Bu əməliyyatlar daxilində XOR, S-Box substitution və digər funksiyalar yer alır.
+                Şifrələmə adətən aşağıdakı ardıcıllıqla baş verir:
+                1. Açarın ilk mərhələsi ilə məlumatın blokları şifrələnir.
+                2. Ardınca 16 mərhələdən ibarət Feistel şəbəkəsində məlumatlar üzərində əməliyyatlar yerinə yetirilir.
+                3. Nəhayət, çıxan şifrələnmiş məlumat verilir.
+            </p>
+            <p class="code-block">
+                // Şifrələmə prosesi: <br>
+                Message = "Təhlükəsiz mesaj"<br>
+                EncryptedMessage = BlowfishEncrypt(Message, Key)<br>
+                // Nəticə: Şifrələnmiş mətn
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">3. Şifrələnmiş Mətni Göndərmək</div>
+            <p class="explanation">
+                Şifrələnmiş mətn artıq göndərilməyə hazırdır. Bu, orijinal məlumatın qorunduğu və yalnız açar sahibi tərəfindən deşifrələnə biləcəyi şəkildə paketlənir.
+                Şifrələnmiş məlumat qarşı tərəfə göndərildikdə, yalnız düzgün açar ilə açılacaq.
+            </p>
+            <p class="code-block">
+                // Şifrələnmiş məlumatın göndərilməsi: <br>
+                Message: "Təhlükəsiz mesaj"<br>
+                EncryptedMessage: "SHFhk45fbh36h39...<br>  (encrypted data)"
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">4. Deşifrələmə Prosesi</div>
+            <p class="explanation">
+                Deşifrələmə, şifrələmə prosesinin tərsi olaraq həyata keçirilir. Burada şifrələnmiş məlumat yenidən orijinal mesaj halına gətirilir.
+                Blowfish şifrələməsində, Feistel şəbəkəsindəki hər bir mərhələnin tərsi tətbiq edilir və şifrələnmiş məlumat açar vasitəsilə yenidən bərpa olunur.
+            </p>
+            <p class="code-block">
+                // Deşifrələmə prosesi: <br>
+                DecryptedMessage = BlowfishDecrypt(EncryptedMessage, Key)<br>
+                // Nəticə: Orijinal mesaj "Təhlükəsiz mesaj"
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">5. Şifrələmə və Deşifrələmə Nəticəsi</div>
+            <p class="explanation">
+                Nəticə olaraq, Blowfish şifrələmə alqoritması ilə məlumat tamamilə qorunur və yalnız düzgün açar ilə şifrələnmiş məlumatın məzmunu açılacaq.
+                Bu alqoritma yüksək sürəti ilə tanınır və müxtəlif tətbiq sahələrində geniş istifadə olunur.
+            </p>
+            <p class="code-block">
+                // Nəticə: <br>
+                Message = "Təhlükəsiz mesaj"<br>
+                EncryptedMessage = "SHFhk45fbh36h39..."<br>
+                DecryptedMessage = "Təhlükəsiz mesaj"<br>
+                // Şifrələmə və deşifrələmə nəticəsi doğrulandı.
+            </p>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

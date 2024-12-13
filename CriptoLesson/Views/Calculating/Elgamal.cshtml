@@ -1,0 +1,146 @@
+﻿@{
+    ViewBag.Title = "Elgamal Algorithm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- Encrypt Section -->
+<div class="form-group">
+    <label for="inputTextEncrypt">Encrypt Text</label>
+    <input type="text" name="inputTextEncrypt" id="inputTextEncrypt" class="form-control custom-input" placeholder="Enter text to encrypt" />
+</div>
+<div class="form-group">
+    <label for="key">Key (16 characters)</label>
+    <input type="text" name="key" id="key" class="form-control custom-input" placeholder="Enter encryption key" />
+</div>
+<button class="btn btn-success custom-btn" onclick="encryptData()">Encrypt</button>
+
+<!-- Decrypt Section -->
+<div class="form-group mt-4">
+    <label for="inputTextDecrypt">Decrypt Text</label>
+    <input type="text" name="inputTextDecrypt" id="inputTextDecrypt" class="form-control custom-input" placeholder="Enter text to decrypt" />
+</div>
+<div class="form-group">
+    <label for="decryptKey">Key for Decryption</label>
+    <input type="text" name="decryptKey" id="decryptKey" class="form-control custom-input" placeholder="Enter key for decryption" />
+</div>
+<button class="btn btn-danger custom-btn" onclick="decryptData()">Decrypt</button>
+
+@if (ViewBag.Result != null)
+{
+    <div class="mt-4 result-container">
+        <h3>@ViewBag.ResultType</h3>
+        <p><strong>Original Text: </strong>@ViewBag.OriginalText</p>
+        <p><strong>Encrypted Text: </strong>@ViewBag.EncryptedText</p>
+        <p><strong>Encryption Key: </strong>@ViewBag.Key</p>
+        <p><strong>Result: </strong><span class="result-text">@ViewBag.Result</span></p>
+    </div>
+}
+
+<script>
+    function encryptData() {
+        var inputTextEncrypt = document.getElementById("inputTextEncrypt").value;
+        var key = document.getElementById("key").value;
+
+        var url = '@Url.Action("Elgamal", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextEncrypt=' + encodeURIComponent(inputTextEncrypt) +
+                  '&key=' + encodeURIComponent(key) +
+                  '&actionType=Encrypt';
+
+        window.location.href = url;
+    }
+
+    function decryptData() {
+        var inputTextDecrypt = document.getElementById("inputTextDecrypt").value;
+        var key = document.getElementById("decryptKey").value;
+
+        var url = '@Url.Action("Elgamal", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextDecrypt=' + encodeURIComponent(inputTextDecrypt) +
+                  '&key=' + encodeURIComponent(key) +
+                  '&actionType=Decrypt';
+
+        window.location.href = url;
+    }
+</script>
+
+<!-- Styling for the form and result display -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7f6;
+        color: #333;
+    }
+
+    h2 {
+        color: #343a40;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control.custom-input {
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+    }
+
+        .form-control.custom-input:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+        }
+
+    .btn.custom-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-top: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn.custom-btn:hover {
+            background-color: #45a049;
+        }
+
+    .btn-success.custom-btn {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-danger.custom-btn {
+        background-color: #dc3545;
+        border: none;
+    }
+
+    .result-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .result-container h3 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .result-container p {
+            font-size: 16px;
+            color: #555;
+        }
+
+    .result-text {
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    .mt-4 {
+        margin-top: 30px;
+    }
+</style>

@@ -1,0 +1,103 @@
+﻿@{
+    ViewData["Title"] = "DES Şifrələmə və Deşifrələmə";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="des-container">
+    <h2>Açarların Yaradılması</h2>
+    <div class="des-step">
+        <h3>1.1 Açarın yaradılması:</h3>
+        <p>DES şifrələmə üçün 64-bit (8 bayt) uzunluğunda bir açar seçirik. Açarımız: <code>12345678</code>.</p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="des-step">
+        <h3>2.1 Mətni bloklara bölmək:</h3>
+        <p>Şifrələnəcək mətni bloklara ayırırıq. Hər blok 64-bit olmalıdır. Məsələn, "HELLO" mətni üçün blokların ASCII kodlarını əldə edirik:</p>
+        <p>"H" = 72, "E" = 69, "L" = 76, "L" = 76, "O" = 79</p>
+        <p>ASCII kodları 8 bitlik bloklara çevrilir:</p>
+        <p>72 = <code>01001000</code>, 69 = <code>01000101</code>, 76 = <code>01001100</code>, 79 = <code>01001111</code></p>
+    </div>
+
+    <div class="des-step">
+        <h3>2.2 DES Şifrələmə düsturunu tətbiq etmək:</h3>
+        <p>Şifrləmə üçün DES şifrələməsi aşağıdakı düsturla aparılır:</p>
+        <p><code>cipher = plainText <sup>Key</sup> mod 2<sup>64</sup></code></p>
+        <p>Bu, hər bir blok üçün tətbiq olunur. Məsələn, "H" üçün şifrələmə:</p>
+        <p>H = <code>01001000</code>: <code>01001000 <sup>12345678</sup> mod 2<sup>64</sup> = 11011001</code></p>
+    </div>
+
+    <div class="des-step">
+        <h3>2.3 Şifrlənmiş mətnin göstərilməsi:</h3>
+        <p>Şifrələnmiş mətnimiz: <code>11011001</code> ... (və s.)</p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="des-step">
+        <h3>3.1 Deşifrələmə düsturunu tətbiq etmək:</h3>
+        <p>Şifrlənmiş mətnin deşifrələnməsi üçün DES-in əks düsturu tətbiq edilir:</p>
+        <p><code>plain = cipherText <sup>dKey</sup> mod 2<sup>64</sup></code></p>
+        <p>Şifrlənmiş mətn üçün deşifrləmə:</p>
+        <p>cipher = <code>11011001</code>: <code>11011001 <sup>2753</sup> mod 2<sup>64</sup> = 01001000</code></p>
+    </div>
+
+    <div class="des-step">
+        <h3>3.2 Deşifrlənmiş mətn:</h3>
+        <p>Deşifrlənmiş mətnimiz: <code>"H"</code> (və s.)</p>
+    </div>
+
+    <div class="des-step">
+        <h3>3.3 Tam deşifrlənmiş mətn:</h3>
+        <p>Deşifrlənmiş mətnimiz: <code>"HELLO"</code></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .des-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .des-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .des-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .des-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+            .des-step p code {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: #f1f1f1;
+                padding: 5px;
+                border-radius: 5px;
+            }
+</style>

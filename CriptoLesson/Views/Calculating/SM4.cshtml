@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "SM4 Algorithm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- Encrypt Section -->
+<div class="form-group">
+    <label for="inputTextEncrypt">Encrypt Text</label>
+    <input type="text" name="inputTextEncrypt" id="inputTextEncrypt" class="form-control" placeholder="Enter text to encrypt" />
+</div>
+<div class="form-group">
+    <label for="key">Key (16 characters)</label>
+    <input type="text" name="key" id="key" class="form-control" placeholder="Enter encryption key" />
+</div>
+<button class="btn btn-success" onclick="encryptData()">Encrypt</button>
+
+<!-- Decrypt Section -->
+<div class="form-group mt-4">
+    <label for="inputTextDecrypt">Decrypt Text</label>
+    <input type="text" name="inputTextDecrypt" id="inputTextDecrypt" class="form-control" placeholder="Enter text to decrypt" />
+</div>
+<div class="form-group">
+    <label for="decryptKey">Key for Decryption</label>
+    <input type="text" name="decryptKey" id="decryptKey" class="form-control" placeholder="Enter key for decryption" />
+</div>
+<button class="btn btn-danger" onclick="decryptData()">Decrypt</button>
+
+@if (ViewBag.Result != null)
+{
+    <div class="mt-4 result-container">
+        <h3>@ViewBag.ResultType</h3>
+        <p><strong>Original Text: </strong>@ViewBag.OriginalText</p>
+        <p><strong>Encrypted Text: </strong>@ViewBag.EncryptedText</p>
+        <p><strong>Encryption Key: </strong>@ViewBag.Key</p>
+        <p><strong>Result: </strong><span class="result-text">@ViewBag.Result</span></p>
+    </div>
+}
+
+<script>
+    function encryptData() {
+        var inputTextEncrypt = document.getElementById("inputTextEncrypt").value;
+        var key = document.getElementById("key").value;
+
+        var url = '@Url.Action("SM4", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextEncrypt=' + encodeURIComponent(inputTextEncrypt) +
+                  '&key=' + encodeURIComponent(key) +
+                  '&actionType=Encrypt';
+
+        window.location.href = url;
+    }
+
+    function decryptData() {
+        var inputTextDecrypt = document.getElementById("inputTextDecrypt").value;
+        var key = document.getElementById("decryptKey").value;
+
+        var url = '@Url.Action("SM4", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextDecrypt=' + encodeURIComponent(inputTextDecrypt) +
+                  '&key=' + encodeURIComponent(key) +
+                  '&actionType=Decrypt';
+
+        window.location.href = url;
+    }
+</script>
+
+<!-- Styling for buttons and result display -->
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7fc;
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        color: #333;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .form-control {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 100%;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 15px;
+        display: inline-block;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .mt-4 {
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .result-container {
+        background-color: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 30px;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .result-text {
+        color: #4CAF50; /* Green color for success result */
+        font-size: 1.25rem;
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    .result-container h3 {
+        color: #ff6347; /* Tomato color for result type */
+    }
+
+    label {
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .container {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+        .container h2 {
+            color: #007bff;
+        }
+</style>

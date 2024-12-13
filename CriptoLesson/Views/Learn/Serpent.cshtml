@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Serpent Şifrələmə və Deşifrələmə";
+}
+
+<!-- Başlıq -->
+<h1 class="text-center" style="color: #2c3e50; font-size: 2.5em; font-weight: bold; margin-top: 20px;">Serpent Şifrələmə və Deşifrələmə</h1>
+
+<!-- Ümumi konteyner -->
+<div class="container" style="max-width: 1000px; margin-top: 40px; padding-bottom: 40px;">
+
+    <!-- Şifrələmə prosesi -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h3 class="card-title">1. Şifrələmə Prosesi</h3>
+        </div>
+        <div class="card-body">
+            <h4>1. Mətn və Açarın Seçilməsi</h4>
+            <p>Şifrələmə prosesinə başlamadan əvvəl, seçilən açar və mətn aşağıdakı kimi olacaq:</p>
+            <p><strong>Mətn:</strong> "HELLO"</p>
+            <p><strong>Açar:</strong> <code>0x2b7e151628aed2a6abf7158809cf4f3c</code></p>
+
+            <hr>
+
+            <h4>2. Mətnin Bloklara Bölünməsi</h4>
+            <p>Şifrələnəcək mətn (HELLO) Unicode şəklində 128 bitlik bloklara çevrilir. Bu zaman hər bir xarakterin bayt qarşılığı alınır:</p>
+            <p><strong>Mətnin Bayt Forması:</strong> F = 0x48, E = 0x45, L = 0x4C, L = 0x4C, O = 0x4F</p>
+
+            <hr>
+
+            <h4>3. Şifrələmə Alqoritmasının İcrası</h4>
+            <p>Serpent alqoritması, 256 bitlik açar ilə 32 mərhələdən keçərək şifrələmə həyata keçirir. Bu mərhələlər vasitəsilə orijinal mətn şifrələnir və nəticədə şifrələnmiş mətn əldə edilir.</p>
+            <p><strong>Şifrələnmiş Mətn:</strong> <code>0xE8B9D8FF63EEC1E914B11E11EC18BBEC</code></p>
+        </div>
+    </div>
+
+    <!-- Deşifrələmə prosesi -->
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h3 class="card-title">2. Deşifrələmə Prosesi</h3>
+        </div>
+        <div class="card-body">
+            <h4>4. Şifrlənmiş Mətnin Göstərilməsi</h4>
+            <p><strong>Şifrlənmiş Mətn:</strong> <code>0xE8B9D8FF63EEC1E914B11E11EC18BBEC</code></p>
+
+            <hr>
+
+            <h4>5. Açar ilə Deşifrələmə</h4>
+            <p>Şifrələnmiş mətnin orijinal halına gətirilməsi üçün, əvvəlcədən istifadə olunan açar ilə deşifrələmə prosesi həyata keçirilir. Bu zaman Serpent alqoritmasının mərhələlərinin tərsi tətbiq olunur.</p>
+            <p><strong>Deşifrlənmiş Mətn:</strong> "HELLO"</p>
+        </div>
+    </div>
+</div>
+
+<!-- Stilin əlavə edilməsi -->
+<style>
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Arial', sans-serif;
+        margin-top: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff;
+    }
+
+    .card-header {
+        font-size: 1.6em;
+        font-weight: bold;
+    }
+
+    .card-body {
+        font-size: 1.2em;
+        color: #333;
+    }
+
+        .card-body h4 {
+            color: #2a9d8f;
+        }
+
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #f1f1f1;
+        padding: 5px;
+        border-radius: 5px;
+        color: #e63946;
+        font-size: 1.2em;
+    }
+
+    .container {
+        padding-top: 30px;
+    }
+
+    .btn {
+        font-size: 1.2em;
+        padding: 12px 25px;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+
+    .card-body p {
+        line-height: 1.6;
+    }
+</style>

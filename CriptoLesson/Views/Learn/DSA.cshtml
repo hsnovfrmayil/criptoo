@@ -1,0 +1,147 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA (Digital Signature Algorithm) İzahı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .step {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .key-example {
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">DSA (Digital Signature Algorithm) Şifrələmə və İmza Yaratma İzahı</h1>
+
+        <div class="step">
+            <div class="step-title">1. DSA Açarlarının Yaradılması</div>
+            <p class="explanation">
+                İlk addımda, **DSA** şifrələmə sistemindəki açarlar yaradılır. Bu açarlar, **Public Key (Açıq Açar)** və **Private Key (Şəxsi Açar)** olaraq iki hissəyə bölünür. Açarlar RSA alqoritması ilə yaradılanlardan fərqli olaraq, DSA üçün xüsusi olaraq dizayn edilir.
+            </p>
+            <p class="code-block">
+                // Açıq və Şəxsi Açarların yaradılması: <br>
+                Public Key (Açıq Açar): P = 109, Q = 23, G = 5 <br>
+                Private Key (Şəxsi Açar): X = 15
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">2. Həş Funksiyasının Tətbiqi</div>
+            <p class="explanation">
+                DSA şifrələməsində imzanın doğruluğunu təmin etmək üçün ilkin olaraq **hash funksiyası** tətbiq olunur. Bu funksiya mətni (mesajı) qısa və unikal bir dəyərə çevirir. Bu hash dəyəri sonradan imzalanır.
+            </p>
+            <p class="code-block">
+                // Həş funksiyasının tətbiqi:<br>
+                Mesaj: "Bu, təhlükəsiz mesajdır!"<br>
+                Hash funksiyası (SHA-1): <br>
+                H = SHA1("Bu, təhlükəsiz mesajdır!") = 3a9d7b9bc9ad0bb0e32dba3e88ffefb9d2e423d5
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">3. İmzanın Yaradılması</div>
+            <p class="explanation">
+                İmzanın yaradılması prosesi aşağıdakı kimi işləyir:
+                - Həşlənmiş mesajın üzərində `k` rəqəmi ilə əlaqəli bir sıra riyazi əməliyyatlar aparılır.
+                - Nəticədə **r** və **s** dəyərləri əldə edilir. Bu iki dəyər imza olaraq istifadə olunur.
+            </p>
+            <p class="code-block">
+                // İmza yaratma prosesi:<br>
+                k = 6<br>
+                r = (G^k mod P) mod Q = 13<br>
+                s = k^-1 * (H + (X * r)) mod Q = 7<br>
+                // İmza: (r, s) = (13, 7)
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">4. İmzanın Verilməsi</div>
+            <p class="explanation">
+                Yaradılmış imza (r, s) sonradan mesajın üzərinə əlavə edilir və qarşı tərəfə göndərilir. Bu imza, mesajın doğruluğunu və göndərənin şəxsiyyətini təsdiqləmək üçün istifadə olunur.
+            </p>
+            <p class="code-block">
+                // İmzanın göndərilməsi: <br>
+                Mesaj: "Bu, təhlükəsiz mesajdır!" <br>
+                İmza: (r = 13, s = 7) <br>
+                İmza ilə birlikdə göndərilir.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">5. İmzanın Yoxlanması</div>
+            <p class="explanation">
+                İmzanın doğruluğunu yoxlamaq üçün, **public key** (açıq açar) və **message hash** (mesajın hashi) istifadə edilir. Bu prosesdə `r` və `s` dəyərləri ilə əlaqəli riyazi əməliyyatlar tətbiq edilir və nəticədə, imzanın düzgünlüyü müəyyən edilir.
+            </p>
+            <p class="code-block">
+                // İmzanın yoxlanması: <br>
+                Public Key: P = 109, Q = 23, G = 5 <br>
+                Mesaj: "Bu, təhlükəsiz mesajdır!" <br>
+                Hash funksiyası: H = 3a9d7b9bc9ad0bb0e32dba3e88ffefb9d2e423d5 <br>
+                r = 13, s = 7 <br>
+                Hər iki dəyər yoxlanır: Səhvsiz isə doğrulama edilir!
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">DSA Şifrələmə və İmza Nəticəsi</div>
+            <p class="explanation">
+                İmzanın doğru və etibarlı olduğu təsdiqləndikdən sonra, mesajın məzmunu və imza müəyyən edilmişdir. DSA alqoritması ilə təmin olunan təhlükəsizlik, məlumatların dəyişdirilməsinin qarşısını alır.
+            </p>
+            <p class="code-block">
+                // Nəticə: <br>
+                İmza doğrulandı. <br>
+                Mesaj: "Bu, təhlükəsiz mesajdır!"<br>
+                İmza: (13, 7)
+            </p>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

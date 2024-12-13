@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Vigenère Şifrələmə və Deşifrələmə";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="vigenere-container">
+    <h2>Açarın və Mətnin Seçilməsi</h2>
+    <div class="vigenere-step">
+        <h3>1. Mətn və Açar:</h3>
+        <p>Mətn: HELLO</p>
+        <p>Açar: KEY</p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="vigenere-step">
+        <h3>2.1 Mətn və Açarın Rəqəmlərlə İfadəsi:</h3>
+        <p>Mətn: H = 7, E = 4, L = 11, L = 11, O = 14</p>
+        <p>Açar: K = 10, E = 4, Y = 24, K = 10, E = 4</p>
+    </div>
+    <div class="vigenere-step">
+        <h3>2.2 Şifrələmə Dünturu Tətbiq Edilir:</h3>
+        <p>Şifrələnmiş Mətn Hesablanır:</p>
+        <pre>
+        R = (H + K) mod 26 = (7 + 10) mod 26 = 17  → R
+        I = (E + E) mod 26 = (4 + 4) mod 26 = 8   → I
+        J = (L + Y) mod 26 = (11 + 24) mod 26 = 9  → J
+        V = (L + K) mod 26 = (11 + 10) mod 26 = 21 → V
+        S = (O + E) mod 26 = (14 + 4) mod 26 = 18 → S
+        </pre>
+        <p>Şifrələnmiş mətn: <code>RIJVS</code></p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="vigenere-step">
+        <h3>3.1 Şifrlənmiş Mətnin Rəqəmlərlə İfadəsi:</h3>
+        <p>Şifrlənmiş mətn: R = 17, I = 8, J = 9, V = 21, S = 18</p>
+    </div>
+    <div class="vigenere-step">
+        <h3>3.2 Deşifrələmə Dünturu Tətbiq Edilir:</h3>
+        <p>Deşifrlənmiş Mətn Hesablanır:</p>
+        <pre>
+        H = (R - K) mod 26 = (17 - 10) mod 26 = 7  → H
+        E = (I - E) mod 26 = (8 - 4) mod 26 = 4   → E
+        L = (J - Y) mod 26 = (9 - 24) mod 26 = 11 → L
+        L = (V - K) mod 26 = (21 - 10) mod 26 = 11 → L
+        O = (S - E) mod 26 = (18 - 4) mod 26 = 14 → O
+        </pre>
+        <p>Deşifrlənmiş mətn: <code>HELLO</code></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .vigenere-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .vigenere-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .vigenere-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .vigenere-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .vigenere-step code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+        }
+</style>

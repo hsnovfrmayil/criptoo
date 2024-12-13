@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "ElGamal Şifrələmə və Deşifrələmə";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="elgamal-container">
+    <h2>Açarın və Mətnin Seçilməsi</h2>
+    <div class="elgamal-step">
+        <h3>1. Mətn: 13</h3>
+        <p><strong>Açarın və mətnin seçilməsi:</strong> İlk olaraq, şifrələmək istədiyimiz mətni seçirik. Bu misalda istifadə edəcəyimiz mətn "13"-dür.</p>
+        <p><strong>Açar Cütü:</strong> ElGamal alqoritması üçün iki növ açar var: Public (ictimai) və Private (xüsusi). Bizim açar cütümüzün parametrləri aşağıdakılardır:</p>
+        <p>Açar: <code>P = 17, G = 3, X = 15</code></p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="elgamal-step">
+        <h3>2. Açarın Matrisi Yaradılır:</h3>
+        <p><strong>Açarın yaradılması:</strong> ElGamal şifrələmə alqoritmasında "P" və "G" kimi iki əsas parametrlər seçilir. P, modulu, G isə generatoru təmsil edir.</p>
+        <pre>
+        Public Key: (P, G, Y) = (17, 3, 6)  // Public açar cütü
+        Private Key: X = 15  // Xüsusi açar
+        </pre>
+    </div>
+
+    <div class="elgamal-step">
+        <h3>3. Təsadüfi K Seçilir:</h3>
+        <p><strong>Təsadüfi K seçilməsi:</strong> Şifrələmə üçün təsadüfi bir K seçirik. Bu, hər bir şifrələmə əməliyyatında fərqli olacaq. Bizim seçdiyimiz K dəyəri 10-dur.</p>
+        <p>Şifrələmə üçün istifadə ediləcək düsturlar:</p>
+        <pre>
+        C1 = G^K mod P = 3^10 mod 17 = 10  // C1 düsturunun hesablanması
+        C2 = M * Y^K mod P = 13 * 6^10 mod 17 = 8  // C2 düsturunun hesablanması
+        </pre>
+    </div>
+
+    <div class="elgamal-step">
+        <h3>4. Şifrələnmiş Mətn:</h3>
+        <p><strong>Şifrələnmiş mətnin göstərilməsi:</strong> Şifrələmə prosesi tamamlandıqdan sonra əldə etdiyimiz şifrələnmiş mətn C1 və C2 olaraq göstərilir. Bu şifrələnmiş mətn yalnız özəl açarla deşifrə edilə bilər.</p>
+        <p>Şifrələnmiş mətn: <code>C1 = 10, C2 = 8</code></p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="elgamal-step">
+        <h3>5. Şifrlənmiş Mətnin Təyini:</h3>
+        <p><strong>Şifrlənmiş mətni əldə edirik:</strong> Deşifrələmə prosesinə başlamaq üçün əvvəlcə şifrələnmiş mətni alırıq. Bu misalda, şifrələnmiş mətn aşağıdakı kimidir:</p>
+        <p>Şifrlənmiş mətn: <code>C1 = 10, C2 = 8</code></p>
+    </div>
+
+    <div class="elgamal-step">
+        <h3>6. Deşifrələnmiş Mətnin Tapılması:</h3>
+        <p><strong>Deşifrələmənin izahı:</strong> Deşifrələmək üçün C1, C2 və Xüsusi açar X istifadə edirik. Aşağıdakı düsturlarla deşifrələmə əməliyyatını həyata keçiririk:</p>
+        <pre>
+        C1^X mod P = 10^15 mod 17 = 6  // C1^X mod P hesablama
+        (C1^X)^(-1) mod P = 6^(-1) mod 17 = 3  // C1^X-in tərsinin hesablanması
+        M = C2 * (C1^X)^(-1) mod P = 8 * 3 mod 17 = 13  // Orijinal mətnin tapılması
+        </pre>
+        <p><strong>Deşifrlənmiş mətn:</strong> Nəticədə əldə etdiyimiz orijinal mətn "13" olacaq. Bu, şifrələnmiş mətnin düzgün deşifrə olunduğunu göstərir.</p>
+        <p>Deşifrlənmiş mətn: <code>M = 13</code></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .elgamal-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .elgamal-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .elgamal-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .elgamal-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .elgamal-step code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    pre {
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>

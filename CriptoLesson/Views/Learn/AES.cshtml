@@ -1,0 +1,149 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES Şifrələmə və Deşifrələmə İzahı</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .step {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .code-block {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+
+        .explanation {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">AES Şifrələmə və Deşifrələmə Addım-Addım İzahı</h1>
+
+        <div class="step">
+            <div class="step-title">1. AddRoundKey</div>
+            <p class="explanation">
+                İlk addımda, AES açarının hər bir biti, şifrələnəcək mətni (plain text) müvafiq biti ilə XOR əməliyyatı aparılır. Bu əməliyyat şifrələmənin başlanğıc nöqtəsini yaradır və məlumatı qarışdırır.
+            </p>
+            <p class="code-block">
+                // XOR əməliyyatı: Açar ilə şifrələnəcək mətni birləşdiririk.<br>
+                Mətni: 0x0123456789ABCDEF <br>
+                Açar: 0x2b7e151628aed2a6abf7158809cf4f3c <br>
+                XOR əməliyyatı: 0x3c63f67b738e9bfb
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">2. SubBytes</div>
+            <p class="explanation">
+                Bu mərhələdə hər bayt **S-Box** cədvəlində dəyişdirilir. Hər bayt əvvəlcədən təyin olunmuş bir cədvəldən istifadə edərək başqa bir bayta çevrilir. Bu, şifrələnmiş məlumatın mürəkkəbliyini artırır.
+            </p>
+            <p class="code-block">
+                // S-Box əvəzetməsi: <br>
+                Bayt 0x32 -> S-Box-da 0x11-ə çevrilir.<br>
+                Bayt 0x43 -> S-Box-da 0x4d-ə çevrilir.<br>
+                // Hər baytın dəyişdirilməsi
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">3. ShiftRows</div>
+            <p class="explanation">
+                Bu mərhələdə, məlumat 4x4 matrisə bölünür və hər bir sətir müəyyən sayda döndərilir. Bu döndürmə əməliyyatı məlumatın daha da qarışmasını təmin edir.
+            </p>
+            <p class="code-block">
+                // ShiftRows əməliyyatı tətbiq edilir:<br>
+                Matris: <br>
+                0x32 0x88 0x31 0xe0 <br>
+                0x43 0x5a 0x31 0x37 <br>
+                0xf6 0x30 0x98 0x07 <br>
+                0xa8 0x8d 0xa2 0x34 <br><br>
+                ShiftRows nəticəsi:<br>
+                0x32 0x88 0x31 0xe0 <br>
+                0x43 0x5a 0x31 0x37 <br>
+                0x98 0x07 0xf6 0x30 <br>
+                0xa8 0x8d 0xa2 0x34
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">4. MixColumns</div>
+            <p class="explanation">
+                Bu mərhələdə, hər sütun daha mürəkkəb hala gətirilir. MixColumns əməliyyatı, məlumatın sütunlarını qarışdırır, beləliklə, məlumatın daha da qorunması təmin edilir.
+            </p>
+            <p class="code-block">
+                // MixColumns əməliyyatı:<br>
+                // Hər sütun üçün xüsusi matematik əməliyyatları tətbiq edilir.<br>
+                Məlumatın sütunları qarışır və daha mürəkkəb olur.
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">5. RoundKey əlavə edilməsi</div>
+            <p class="explanation">
+                Hər raundun sonunda, **RoundKey** şifrələnmiş məlumatla yenidən XOR edilir. Bu addım, AES açarının hər bir hissəsinin məlumatla qarışmasını təmin edir.
+            </p>
+            <p class="code-block">
+                // XOR əməliyyatı ilə RoundKey əlavə edilir:<br>
+                0x3c63f67b738e9bfb XOR RoundKey
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Şifrələnmiş Nəticə</div>
+            <p class="explanation">
+                Nəticədə, şifrələnmiş mətn çox mürəkkəb hala gəlir və orijinal məlumat oxunmaz olur. AES açarının düzgün tətbiqi ilə bu mətn yalnız doğru açar ilə deşifrələnə bilər.
+            </p>
+            <p class="code-block">
+                // Nəticədə əldə edilən şifrələnmiş məlumat:<br>
+                0x9b12ac63f6b0e93c7d2f0e3f9b0e9a11
+            </p>
+        </div>
+
+        <div class="step">
+            <div class="step-title">Deşifrələmə Prosesi</div>
+            <p class="explanation">
+                Deşifrələmə prosesi şifrələmənin əksinə olaraq həyata keçirilir. Hər bir mərhələ tərsinə tətbiq olunur:
+            </p>
+            <ul>
+                <li>RoundKey çıxarılır.</li>
+                <li>ShiftRows sağa doğru tətbiq edilir.</li>
+                <li>SubBytes, S-Box-un tərsindən istifadə edilərək tətbiq olunur.</li>
+                <li>MixColumns əgər lazım olarsa, tərsinə tətbiq olunur.</li>
+                <li>Yenidən RoundKey ilə XOR edilir və nəticədə orijinal mətn əldə edilir.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Playfair Algorithm";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!-- Encrypt Section -->
+<div class="form-group">
+    <label for="inputTextEncrypt">Encrypt Text</label>
+    <input type="text" name="inputTextEncrypt" id="inputTextEncrypt" class="form-control" placeholder="Enter text to encrypt" />
+</div>
+<button class="btn btn-success" onclick="encryptData()">Encrypt</button>
+
+<!-- Decrypt Section -->
+<div class="form-group mt-4">
+    <label for="inputTextDecrypt">Decrypt Text</label>
+    <input type="text" name="inputTextDecrypt" id="inputTextDecrypt" class="form-control" placeholder="Enter text to decrypt" />
+</div>
+<button class="btn btn-danger" onclick="decryptData()">Decrypt</button>
+
+@if (ViewBag.Result != null)
+{
+    <div class="mt-4">
+        <h3>@ViewBag.ResultType</h3> <!-- Displaying whether it's Encrypt or Decrypt result -->
+        <p>@ViewBag.Result</p>
+    </div>
+}
+
+<script>
+    function encryptData() {
+        // Get the value of the input field
+        var inputTextEncrypt = document.getElementById("inputTextEncrypt").value;
+
+        // Construct the URL with query parameters (including inputTextEncrypt)
+        var url = '@Url.Action("Playfair", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextEncrypt=' + encodeURIComponent(inputTextEncrypt) +
+                  '&actionType=Encrypt';
+
+        // Redirect to the constructed URL
+        window.location.href = url;
+    }
+
+    function decryptData() {
+        // Get the value of the input field
+        var inputTextDecrypt = document.getElementById("inputTextDecrypt").value;
+
+        // Construct the URL with query parameters (including inputTextDecrypt)
+        var url = '@Url.Action("Playfair", "Calculating", new { algorithmName = ViewBag.Title })' +
+                  '?algorithmName=' + encodeURIComponent('@ViewBag.Title') +
+                  '&inputTextDecrypt=' + encodeURIComponent(inputTextDecrypt) +
+                  '&actionType=Decrypt';
+
+        // Redirect to the constructed URL
+        window.location.href = url;
+    }
+</script>
+
+<!-- Styling for buttons -->
+<style>
+    .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border: none;
+        color: white;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .mt-4 {
+        margin-top: 30px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+</style>

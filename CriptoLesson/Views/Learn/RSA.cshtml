@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "RSA Şifrələmə və Deşifrələmə";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="rsa-container">
+    <h2>Açarların Yaradılması</h2>
+    <div class="rsa-step">
+        <h3>1.1 İki böyük asal ədəd seçmək:</h3>
+        <p>Seçdiyimiz ədədlər: p = 61 və q = 53.</p>
+    </div>
+    <div class="rsa-step">
+        <h3>1.2 n dəyərini hesablamaq:</h3>
+        <p>n = p * q = 61 * 53 = 3233</p>
+    </div>
+    <div class="rsa-step">
+        <h3>1.3 φ(n) (Euler funksiyası) hesablanması:</h3>
+        <p>φ(n) = (p - 1) * (q - 1) = (61 - 1) * (53 - 1) = 60 * 52 = 3120</p>
+    </div>
+    <div class="rsa-step">
+        <h3>1.4 İctimai açarın e dəyərini seçmək:</h3>
+        <p>Seçdiyimiz e = 17. Bu, 1 < e < φ(n) və gcd(e, φ(n)) = 1 olduğu üçün uyğun bir seçimizdir.</p>
+    </div>
+    <div class="rsa-step">
+        <h3>1.5 Özəl açarın d dəyərini hesablamaq:</h3>
+        <p>d = 2753. (Bu, aşağıdakı tənliklə tapılır: <code>d × e ≡ 1 (mod φ(n))</code>)</p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="rsa-step">
+        <h3>2.1 Mətni əlifba sırasına görə kodlama:</h3>
+        <p>"h" = 8, "e" = 5, "l" = 12, "l" = 12, "o" = 15</p>
+    </div>
+    <div class="rsa-step">
+        <h3>2.2 Şifrələmə düsturunu tətbiq etmək:</h3>
+        <p>Şifrləmə üçün düstur: <code>cipher = plain<sup>e</sup> mod n</code></p>
+        <p>Bu, hər bir simvol üçün tətbiq olunur:</p>
+        <p>h = 8: <code>8<sup>17</sup> mod 3233 = 2332</code></p>
+        <p>e = 5: <code>5<sup>17</sup> mod 3233 = 2481</code></p>
+        <p>l = 12: <code>12<sup>17</sup> mod 3233 = 1507</code></p>
+        <p>l = 12: <code>12<sup>17</sup> mod 3233 = 1507</code></p>
+        <p>o = 15: <code>15<sup>17</sup> mod 3233 = 2326</code></p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="rsa-step">
+        <h3>3.1 Deşifrələmə düsturunu tətbiq etmək:</h3>
+        <p>Deşifrləmə üçün düstur: <code>plain = cipher<sup>d</sup> mod n</code></p>
+        <p>Şifrlənmiş mətni (cipher = [2332, 2481, 1507, 1507, 2326]) deşifrləyirik:</p>
+        <p>cipher = 2332: <code>2332<sup>2753</sup> mod 3233 = 8 (Bu, "h" simvolunun əlifba sırasıdır)</code></p>
+        <p>cipher = 2481: <code>2481<sup>2753</sup> mod 3233 = 5 (Bu, "e" simvolunun əlifba sırasıdır)</code></p>
+        <p>cipher = 1507: <code>1507<sup>2753</sup> mod 3233 = 12 (Bu, "l" simvolunun əlifba sırasıdır)</code></p>
+        <p>cipher = 1507: <code>1507<sup>2753</sup> mod 3233 = 12 (Bu, "l" simvolunun əlifba sırasıdır)</code></p>
+        <p>cipher = 2326: <code>2326<sup>2753</sup> mod 3233 = 15 (Bu, "o" simvolunun əlifba sırasıdır)</code></p>
+    </div>
+    <div class="rsa-step">
+        <h3>3.2 Deşifrlənmiş Mətn:</h3>
+        <p>Deşifrlənmiş mətnimiz: <code>"hello"</code></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .rsa-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .rsa-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .rsa-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .rsa-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+            .rsa-step p code {
+                font-family: 'Courier New', Courier, monospace;
+                background-color: #f1f1f1;
+                padding: 5px;
+                border-radius: 5px;
+            }
+</style>

@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Feistel Şifrələmə və Deşifrələmə";
+}
+
+<h1>Feistel Şifrələmə və Deşifrələmə Prosesi</h1>
+
+<div class="feistel-container">
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="feistel-step">
+        <h3>1. İlkin Giriş</h3>
+        <p>Məlumat bloku: <code>ABCD</code></p>
+        <p>Hex ekvivalenti: <code>41424344</code></p>
+        <p>Məlumat ikiyə bölünür:</p>
+        <table>
+            <tr>
+                <th>Sol Yarı (L0)</th>
+                <th>Sağ Yarı (R0)</th>
+            </tr>
+            <tr>
+                <td>4142</td>
+                <td>4344</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="feistel-step">
+        <h3>2. Tur 1 - Funksiyanın Tətbiqi</h3>
+        <p>Funksiya: <code>F(R0, K1) = R0 XOR K1</code></p>
+        <p>Açar (K1): <code>10101010 10101010</code></p>
+        <p>Hesablamalar:</p>
+        <pre>
+        F(4344, K1) = 01000011 01000100 XOR 10101010 10101010
+                    = 11101001 11101110 (E9EE)
+        </pre>
+        <p>Yeni yarılar:</p>
+        <table>
+            <tr>
+                <th>L1</th>
+                <th>R1</th>
+            </tr>
+            <tr>
+                <td>4344</td>
+                <td>A8AC (L0 XOR F(R0, K1))</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="feistel-step">
+        <h3>3. Tur 2 - Funksiyanın Tətbiqi</h3>
+        <p>Funksiya: <code>F(R1, K2) = R1 XOR K2</code></p>
+        <p>Açar (K2): <code>11001100 11001100</code></p>
+        <p>Hesablamalar:</p>
+        <pre>
+        F(A8AC, K2) = 10101000 10101100 XOR 11001100 11001100
+                    = 01100100 01100000 (6420)
+        </pre>
+        <p>Yeni yarılar:</p>
+        <table>
+            <tr>
+                <th>L2</th>
+                <th>R2</th>
+            </tr>
+            <tr>
+                <td>A8AC</td>
+                <td>2724 (L1 XOR F(R1, K2))</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="feistel-step">
+        <h3>4. Şifrələnmiş Mətn</h3>
+        <p>Nəticə:</p>
+        <pre>
+        Şifrələnmiş Mətn = L2 || R2
+                         = A8AC || 2724
+                         = A8 AC 27 24
+        </pre>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="feistel-step">
+        <h3>1. Tur 2-nin Tərsi</h3>
+        <p>Əvvəlki yarılar:</p>
+        <table>
+            <tr>
+                <th>L2</th>
+                <th>R2</th>
+            </tr>
+            <tr>
+                <td>A8AC</td>
+                <td>2724</td>
+            </tr>
+        </table>
+        <p>Funksiya: <code>L1 = R2 XOR F(L2, K2)</code></p>
+        <pre>
+        L1 = 2724 XOR F(A8AC, K2)
+           = 2724 XOR 6420
+           = 4344
+        </pre>
+    </div>
+
+    <div class="feistel-step">
+        <h3>2. Tur 1-nin Tərsi</h3>
+        <p>Funksiya: <code>L0 = R1 XOR F(L1, K1)</code></p>
+        <pre>
+        L0 = 4344 XOR F(4344, K1)
+           = 4142
+        </pre>
+        <p>Son yarılar:</p>
+        <table>
+            <tr>
+                <th>L0</th>
+                <th>R0</th>
+            </tr>
+            <tr>
+                <td>4142</td>
+                <td>4344</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="feistel-step">
+        <h3>3. Deşifrlənmiş Mətn</h3>
+        <p>Nəticə:</p>
+        <pre>
+        Deşifrlənmiş Mətn = L0 || R0
+                         = 4142 || 4344
+                         = ABCD
+        </pre>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 20px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+    }
+
+    .feistel-container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .feistel-step {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+    pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        font-family: monospace;
+        overflow-x: auto;
+    }
+</style>

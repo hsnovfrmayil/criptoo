@@ -1,0 +1,200 @@
+﻿@{
+    ViewData["Title"] = "Playfair Şifrələmə və Deşifrələmə";
+    ViewBag.AlgorithmName = "Playfair Şifrələmə Metodu";
+}
+
+<h1>@ViewBag.AlgorithmName</h1>
+
+<div class="playfair-container">
+    <h2>Açarın və Mətnin Seçilməsi</h2>
+    <div class="playfair-step">
+        <h3>1. Mətn və Açar Seçilir:</h3>
+        <p>Mətn: <strong>BABA EVRE</strong></p>
+        <p>Açar: <strong>KEYWORD</strong></p>
+    </div>
+
+    <h2>Şifrələmə Prosesi</h2>
+    <div class="playfair-step">
+        <h3>2. Açar Matrisi Yaradılır:</h3>
+        <p>Açarın və əlifbanın təkrarsız hərflərindən matris qurulur. **J** hərfi **I** kimi qəbul edilir.</p>
+        <pre>
+        K  E  Y  W  O
+        R  D  A  B  C
+        F  G  H  I  L
+        M  N  P  Q  S
+        T  U  V  X  Z
+        </pre>
+    </div>
+
+    <h2>Şifrələnmə Addımları</h2>
+    <div class="playfair-step">
+        <h3>3. Mətn Cütlərə Bölünür:</h3>
+        <p>Mətn: <strong>BABA EVRE</strong> → Cütlər: <strong>BA, BA, EV, RE</strong></p>
+    </div>
+
+    <div class="playfair-step">
+        <h3>4. Şifrələmə Qaydaları:</h3>
+        <ol>
+            <li><strong>Eyni sırada olan hərflər:</strong> Sağdakı sütun hərfi ilə əvəzlənir. Son sütundursa, birinciyə keçir.</li>
+            <li><strong>Eyni sütunda olan hərflər:</strong> Alt sıradakı hərflə əvəzlənir. Son sıradadırsa, birinciyə keçir.</li>
+            <li><strong>Diagonalda olan hərflər:</strong> Eyni sırada digər sütunlarda olan hərflər alınır.</li>
+        </ol>
+    </div>
+
+    <div class="playfair-step">
+        <h3>5. Şifrələmə Addımları:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cüt</th>
+                    <th>Qayda</th>
+                    <th>Şifrələnmiş</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BA</td>
+                    <td>Eyni sırada (B və A eyni sırada)</td>
+                    <td><strong>BC</strong></td>
+                </tr>
+                <tr>
+                    <td>BA</td>
+                    <td>Eyni sırada (B və A eyni sırada)</td>
+                    <td><strong>BC</strong></td>
+                </tr>
+                <tr>
+                    <td>EV</td>
+                    <td>Eyni sütunda (E və V eyni sütundadır)</td>
+                    <td><strong>DR</strong></td>
+                </tr>
+                <tr>
+                    <td>RE</td>
+                    <td>Diagonal (R və E müxtəlif sıradadır)</td>
+                    <td><strong>DF</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="playfair-step">
+        <h3>6. Şifrələnmiş Mətn:</h3>
+        <p><strong>BCBC DR DF</strong></p>
+    </div>
+
+    <h2>Deşifrələmə Prosesi</h2>
+    <div class="playfair-step">
+        <h3>7. Şifrələnmiş Cütlərə Bölünür:</h3>
+        <p>Şifrələnmiş mətn: <strong>BCBC DR DF</strong></p>
+        <p>Cütlər: <strong>BC, BC, DR, DF</strong></p>
+    </div>
+
+    <div class="playfair-step">
+        <h3>8. Deşifrələmə Qaydaları:</h3>
+        <p>Şifrələmə qaydalarının əksi tətbiq edilir.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Cüt</th>
+                    <th>Qayda</th>
+                    <th>Deşifrlənmiş</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BC</td>
+                    <td>Eyni sırada</td>
+                    <td><strong>BA</strong></td>
+                </tr>
+                <tr>
+                    <td>BC</td>
+                    <td>Eyni sırada</td>
+                    <td><strong>BA</strong></td>
+                </tr>
+                <tr>
+                    <td>DR</td>
+                    <td>Eyni sütunda</td>
+                    <td><strong>EV</strong></td>
+                </tr>
+                <tr>
+                    <td>DF</td>
+                    <td>Diagonal</td>
+                    <td><strong>RE</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="playfair-step">
+        <h3>9. Deşifrlənmiş Mətn:</h3>
+        <p><strong>BABA EVRE</strong></p>
+    </div>
+</div>
+
+<style>
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        color: #4CAF50;
+        font-size: 2.5em;
+    }
+
+    h2 {
+        margin-top: 30px;
+        font-size: 2em;
+        color: #333;
+        border-bottom: 2px solid #4CAF50;
+        padding-bottom: 10px;
+    }
+
+    .playfair-container {
+        width: 80%;
+        max-width: 1000px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .playfair-step {
+        margin-bottom: 20px;
+        padding-left: 10px;
+    }
+
+        .playfair-step h3 {
+            font-size: 1.3em;
+            color: #4CAF50;
+        }
+
+        .playfair-step p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .playfair-step code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f1f1f1;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+    }
+</style>
